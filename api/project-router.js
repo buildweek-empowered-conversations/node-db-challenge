@@ -95,7 +95,7 @@ router.post('/:id/tasks', (req,res)=> {
     const taskData = req.body;
     const {id}=req.params;
 
-    Projects.findById({id})
+    Projects.findById(id)
     .then(project=> {
         if(project){
             Projects.addTask(taskData,id)
