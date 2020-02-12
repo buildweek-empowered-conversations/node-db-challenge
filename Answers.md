@@ -7,6 +7,7 @@
 So that when other tables need to be joined, they will have something to connect them with a foreign key on another table.
 
 - [ ] What is the name given to a table column that references the primary key on another table.
+
 A foreign key.
 
 - [ ] What do we need in order to have a _many to many_ relationship between two tables.

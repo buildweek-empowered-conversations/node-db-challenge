@@ -11,7 +11,8 @@ module.exports = {
     getResources,
     addResource,
     findresources,
-    remove
+    remove,
+    findWholeThing
 }
 
 function find (){
@@ -39,6 +40,17 @@ function getResources(id){
      .join('projects as p', 'p.id','r.project_id')
     .select('p.name','r.resource_name')
     .where('r.project_id','=',id) ;
+}
+
+
+function findWholeThing(id){
+    return db('tasks as t')
+    .join('projects as p', 'p,id','t.project_id')
+    .join('resources as r', 'r.project_id')
+    .select('p.name', 'p.id', 'r.resource_name','t.task_number', 't.instructions')
+    .where('r.project_id','=',id 
+    // ,'and','t.project_id','=' ,id
+    )
 }
 // function add (project){
 //     db('projects')

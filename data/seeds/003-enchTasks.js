@@ -20,7 +20,26 @@ exports.seed = function(knex) {
         },
         { id: 3, task_number: 3, 
           instructions: "Eat it! Yumm",
-         project_id: 2 }
+         project_id: 2 },
+
+         {
+          id: 4,
+          task_number: 1,
+          instructions: "Make backend with Node.js",
+          project_id: 1
+        },
+        {
+          id: 5,
+          task_number: 2,
+          instructions: "make Frontend with React",
+          project_id: 1
+        },
+        {
+          id: 6,
+          task_number: 3,
+          instructions: "Deploy to Heroku, if it works",
+          project_id: 1
+        }
       ]);
     });
 };

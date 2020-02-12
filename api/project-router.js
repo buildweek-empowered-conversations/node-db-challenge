@@ -95,7 +95,7 @@ router.post('/:id/tasks', (req,res)=> {
     const taskData = req.body;
     const {id}=req.params;
 
-    Projects.findById(id)
+    Projects.findById({id})
     .then(project=> {
         if(project){
             Projects.addTask(taskData,id)
@@ -161,6 +161,21 @@ router.get('/:id/resources', (req,res)=> {
     })
     .catch(err=> 
         res.status(500).json({message:' error finding the resources.'}))
+})
+
+router.get('/:id/all', (req,res)=> {
+    const {id}= req.params;
+    Projects.findWholeThing(id)
+    .then(e => {
+        if(e){
+            res.status(200).json(e)
+        }else{
+            res.status(404).json({message: 'could not find'})
+        }
+    })
+    .catch(err=> {
+        res.status(500).json({message: 'error finding the resources'})
+    })
 })
 
 router.delete('/:id', (req,res)=> {
